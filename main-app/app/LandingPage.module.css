@@ -1,0 +1,199 @@
+/* You can tweak these to match your H1 typing speed */
+.hero {
+  --typing-duration: 3s;
+  /* how long the H1 types for */
+  --motto-delay: calc(var(--typing-duration) + 0.3s);
+  --cta-delay: calc(var(--typing-duration) + 1s);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background: #EDFAF8;
+}
+
+
+
+/* H1 (JS handles the typing of text itself) */
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* Blinking caret to sell the typing effect */
+.title::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 0.8em;
+  background: currentColor;
+  margin-left: 6px;
+  vertical-align: -0.1em;
+}
+
+
+
+/* Motto: fade + slide up AFTER the H1 finishes typing */
+.motto {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: black;
+  margin-bottom: 55px;
+  opacity: 0;
+  transform: translateY(20px);
+  letter-spacing: 0.5px;
+  animation: fadeSlideUp 1s ease forwards;
+  animation-delay: var(--motto-delay);
+  /* after typing ends */
+}
+
+/* Make heroContent a row by default for desktop */
+.heroContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+/* Make Next.js <Image> responsive */
+.heroImage img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+@keyframes fadeSlideUp {
+  to {
+    opacity: 0.95;
+    transform: translateY(0);
+  }
+}
+
+/* CTA: bounce in AFTER the motto */
+.cta {
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  opacity: 0;
+  animation: bounceIn 0.6s ease forwards;
+  animation-delay: var(--cta-delay);
+}
+
+.cta:hover {
+  background-color: #e73370;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  70% {
+    transform: scale(0.95);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Accessibility: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  .logo,
+  .motto,
+  .cta,
+  .title::after {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
+/* Small phones (max 375px, e.g. iPhone SE) */
+/* Very small phones (max 375px, e.g. iPhone SE) */
+/* iPhone SE and very small phones */
+/* Small phones (≤375px, iPhone SE) */
+@media (max-width: 375px) {
+  .heroContent {
+    flex-direction: column; /* stack */
+    text-align: center;
+  }
+
+  .heroImage {
+    max-width: 180px;
+    margin: 0 auto;
+  }
+
+  .title {
+    font-size: 1.2rem;
+    white-space: normal;
+  }
+}
+
+
+
+
+/* Regular phones (376px – 767px) */
+@media (max-width: 767px) {
+  .heroContent {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .title {
+    font-size: 1.6rem;
+    white-space: normal; /* allow wrapping */
+  }
+  .motto {
+    font-size: 1.1rem;
+  }
+  .cta {
+    font-size: 1rem;
+    padding: 10px 22px;
+  }
+}
+
+/* Tablets (768px – 1024px) */
+/* Mid tablets (768px – 900px) */
+/* e.g. iPad Mini, Galaxy Tab S portrait */
+@media (min-width: 768px) and (max-width: 900px) {
+  .heroContent {
+    flex-direction: column; /* stack like big phone */
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .heroImage {
+    max-width: 260px; /* not too big */
+    margin: 0 auto;
+  }
+
+  .heroText {
+    width: 100%;
+    text-align: center;
+  }
+
+  .title { font-size: 1.8rem; }
+  .motto { font-size: 1.1rem; }
+}
+

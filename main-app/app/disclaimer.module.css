@@ -1,0 +1,32 @@
+.disclaimerSection {
+  background-color: #f9fbfd; /* soft light background */
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1B75BC; /* matches your footer blue */
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.paragraph {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 1.2rem;
+}

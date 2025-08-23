@@ -1,0 +1,276 @@
+.header {
+  position: sticky;
+  top: 0;
+  background-color: #EDFAF8;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 50;
+}
+
+.nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: center; /* center the middle element */
+  align-items: center;
+  position: relative; /* so we can absolutely position center content */
+  border-radius: 15px;
+}
+
+.logoContainer {
+  position: absolute;
+  left: 1.5rem; /* keep it on the far left */
+  display: flex;
+  align-items: center;
+}
+
+.logoImg {
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+
+.logoDropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  user-select: none;
+  color: white;
+  background-color: black;
+  padding: 0.5rem 5rem; /* vertical + horizontal padding to create cylinder shape */
+  border-radius: 9999px; /* fully rounded pill shape */
+  display: inline-block;
+}
+
+/* Hide hamburger by default */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburgerIcon {
+  width: 2rem;
+  height: 2rem;
+  color: #111;
+}
+
+/* Mobile menu panel */
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  background: white;
+  border-top: 1px solid #ddd;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  padding: 1rem;
+  z-index: 200;
+}
+
+.mobileMenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobileMenu li a {
+  display: block;
+  padding: 0.75rem 0;
+  color: #111;
+  text-decoration: none;
+}
+
+.mobileMenu li a:hover {
+  background: #f0f0f0;
+  color: rgba(253, 9, 232, 0.448);
+}
+
+
+.dropdownContent {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  min-width: 150px;
+  list-style: none;
+  padding: 0.5rem 0;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.logoDropdown:hover .dropdownContent {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.dropdownContent li {
+  padding: 0 1rem;
+}
+
+.dropdownContent li a {
+  display: block;
+  padding: 0.5rem 0;
+  color: #111;
+  text-decoration: none;
+}
+
+.dropdownContent li a:hover {
+  background-color: #f0f0f0;
+  color: rgba(253, 9, 232, 0.448)
+}
+.chevron {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.4rem;
+}
+/* ====== MEDIA QUERIES ====== */
+
+/* Small phones (≤480px) */
+/* Hide hamburger by default */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburgerIcon {
+  width: 2rem;
+  height: 2rem;
+  color: #111;
+}
+
+/* Mobile menu panel */
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  background: white;
+  border-top: 1px solid #ddd;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  padding: 1rem;
+  z-index: 200;
+}
+
+.mobileMenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobileMenu li a {
+  display: block;
+  padding: 0.75rem 0;
+  color: #111;
+  text-decoration: none;
+}
+
+.mobileMenu li a:hover {
+  background: #f0f0f0;
+  color: rgba(253, 9, 232, 0.448);
+}
+
+/* ===== MEDIA QUERIES ===== */
+
+/* Small screens: hide pill, show hamburger */
+/* Phones only: use hamburger, hide pill */
+/* Phones and tablets (≤1024px) */
+@media (max-width: 1024px) {
+  .logoDropdown { display: none; }   /* hide pill */
+  .hamburger { display: block; margin-left: auto; }
+  .nav { justify-content: space-between; }
+  .logoContainer { position: static; }
+  .mobileMenu { display: block; }    /* panel when toggled */
+}
+
+/* Laptops and up (≥1025px) */
+@media (min-width: 1025px) {
+  .hamburger { display: none; }
+  .mobileMenu { display: none; }
+  .logoDropdown { display: block; }  /* pill visible */
+}
+
+
+/* Large desktops (1441px – 1920px) */
+@media (min-width: 1441px) {
+  .nav {
+    max-width: 1400px;
+  }
+}
+
+/* Ultra-wide screens (1921px+) */
+@media (min-width: 1921px) {
+  .nav {
+    max-width: 1600px;
+  }
+}
+/* Tablets only: prevent horizontal overflow + keep things tight */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Let flex children shrink instead of pushing the row wider */
+  .nav > * { min-width: 0; }
+
+  /* Make the nav respect the viewport width and clip any stray overflow */
+  .nav {
+    width: 100%;
+    max-width: 100vw;
+    padding: 0.75rem 1rem;      /* slimmer so header isn’t tall */
+    overflow-x: clip;           /* no horizontal scroll from header */
+  }
+
+  /* Logo sits in flow on tablets (override absolute from desktop) */
+  .logoContainer { position: static !important; }
+
+  /* Slightly smaller logo so it doesn’t crowd the hamburger */
+  .logoImg { width: 56px; height: 56px; }
+
+  /* Ensure hamburger is visible and doesn’t shrink away */
+  .hamburger { display: block !important; margin-left: auto; flex-shrink: 0; }
+
+  /* Pill stays hidden on tablets (double down just in case) */
+  .logoDropdown { display: none !important; }
+}
+
+/* Extra safety: never let the header create horizontal scroll on any ≤1024px */
+@media (max-width: 1024px) {
+  .header { overflow-x: clip; }
+}
+/* phones (≤480px) */
+@media (max-width: 480px) {
+  .hamburgerIcon { width: 24px; height: 24px; }
+}
+
+/* regular phones */
+@media (min-width: 481px) and (max-width: 767px) {
+  .hamburgerIcon { width: 28px; height: 28px; }
+}
+
+/* tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hamburgerIcon { width: 32px; height: 32px; }
+}
+
+/* small laptops */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .hamburgerIcon { width: 36px; height: 36px; }
+}
+
+/* large desktops */
+@media (min-width: 1441px) {
+  .hamburgerIcon { width: 40px; height: 40px; }
+}
+

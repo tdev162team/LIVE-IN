@@ -1,0 +1,32 @@
+.gamesSection {
+  background-color: #EDFAF8; /* full-width background */
+  padding: 3rem 0;
+}
+
+/* Center the cards inside the grid */
+.cardsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4.5rem;
+  margin-top: 2rem;
+
+  justify-content: center; /* <-- CENTER the cards horizontally */
+  align-items: flex-start; /* optional, keeps cards top-aligned */
+}
+
+/* Optional: make cards responsive */
+.cardsGrid > * {
+  flex: 1 1 250px; /* min 250px, grow to fill space */
+  max-width: 300px; /* prevent cards from getting too wide */
+}
+
+
+
+.gamesTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+
