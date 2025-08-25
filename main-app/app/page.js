@@ -1,5 +1,4 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import styles from "@/app/page.module.css";
 import LandingPage from "./components/LandingPage";
 import Games from "./components/Games";
 import FAQs from "./components/FAQs";
