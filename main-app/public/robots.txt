@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://live-in-three.vercel.app/
+
+# Sitemaps
+Sitemap: https://live-in-three.vercel.app/sitemap.xml
