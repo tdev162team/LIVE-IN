@@ -10,13 +10,21 @@ const faqs = [
         answer: "Each game comes with a link to Itch.io where you can try it directly.",
     },
     {
-        question: "Can I use these games on TikTok Live?",
-        answer: "Yes, they are built for interactive TikTok Live experiences!",
+        question: "How can I stream these games?",
+        answer: "You can stream the games on TikTok Live, and if you want to learn more, you can watch the tutorials on YouTube.",
     },
     {
-        question: "Are the games free?",
-        answer: "Some are free, while others may require a small payment on Itch.io.",
+        question: "What requirements do I have to meet so I can stream?",
+        answer: "To use TikTok Live Studio, you need to have your account in good standing without policy violations while using the latest version of TikTok and having a stable internet connection.",
     },
+    {
+        question: "Can I make money?",
+        answer: "Yes, you can earn money through TikTok's gifting system during your live streams.",    
+    },
+    {
+        question: "How much will I earn daily?",
+        answer: "It varies based on your audience size,country or skillset. But with dedication, you can achieve significant earnings over time.",
+    }
 ];
 
 const FAQs = () => {
